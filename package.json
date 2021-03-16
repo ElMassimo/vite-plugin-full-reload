@@ -1,0 +1,57 @@
+{
+  "name": "vite-plugin-full-reload",
+  "description": "Reload the page when files are modified",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": "Máximo Mussini <maximomussini@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ElMassimo/vite-plugin-full-reload"
+  },
+  "homepage": "https://github.com/ElMassimo/vite-plugin-full-reload",
+  "bugs": "https://github.com/ElMassimo/vite-plugin-full-reload/issues",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vite",
+    "full",
+    "reload"
+  ],
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "dev": "npm run build -- --watch",
+    "build": "tsup src/index.ts --dts --format cjs,esm",
+    "lint": "lint-staged",
+    "postinstall": "husky install",
+    "prerelease": "npm run build",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags"
+  },
+  "peerDependencies": {
+    "chalk": "^4.1",
+    "chokidar": "^3.5"
+  },
+  "devDependencies": {
+    "@mussi/eslint-config": "^0.5.0",
+    "@types/node": "^14.14.35",
+    "chalk": "^4.1",
+    "chokidar": "^3.5",
+    "conventional-changelog-cli": "^2.1.1",
+    "eslint": "^7.22.0",
+    "husky": "^5.1.3",
+    "lint-staged": "^10.5.4",
+    "rollup": "^2.41.4",
+    "tsup": "^4.8.3",
+    "typescript": "^4.2.2",
+    "vite": "^2.1.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx,vue}": [
+      "eslint --fix"
+    ]
+  }
+}

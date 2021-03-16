@@ -1,0 +1,31 @@
+name: JS lint
+
+on: [push]
+
+jobs:
+  build:
+    name: JS Lint
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [12.x]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - uses: pnpm/action-setup@v1.2.1
+        with:
+          version: 5.13.6
+          run_install: |
+            - recursive: false
+
+      - name: Lint
+        run: pnpm lint
