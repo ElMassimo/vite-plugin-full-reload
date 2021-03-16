@@ -18,6 +18,14 @@
 [Vite Ruby]: https://github.com/ElMassimo/vite_ruby
 [JS From Routes]: https://github.com/ElMassimo/js_from_routes
 
+## Why? 🤔
+
+When using _[Vite Ruby]_, I wanted to see changes to server-rendered layout or template without having to manually reload the page.
+
+Also, in _[JS From Routes]_ path helpers are generated when Rails reload is triggered.
+
+Triggering a page reload when `config/routes.rb` is modified makes the DX very smooth.
+
 ## Installation 💿
 
 Install the package as a development dependency:
@@ -43,19 +51,11 @@ export default defineConfig({
 
 This is useful to trigger a page refresh for files that are not being imported, such as server-rendered templates.
 
-## Background 📜
-
-When using _[Vite Ruby]_, I wanted to see changes to server-rendered layout or template without having to manually reload the page.
-
-Also, in _[JS From Routes]_ path helpers are generated when Rails reload is triggered.
-
-Triggering a page reload when `config/routes.rb` is modified makes the DX very smooth.
-
 ## Acknowledgements
 
 - <kbd>[vite-plugin-live-reload]</kbd>
 
-  This is a nice plugin, I found it after quickly developing this one.
+  This is a nice plugin, I found it right before publishing this one.
 
   I've made [two](https://github.com/arnoson/vite-plugin-live-reload/pull/3) [PRs](https://github.com/arnoson/vite-plugin-live-reload/pull/5) that are needed to support these use cases.
 

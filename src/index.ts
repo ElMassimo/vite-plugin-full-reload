@@ -34,6 +34,8 @@ interface Config extends WatchOptions {
 export default (paths: string | string[], config: Config = {}): Plugin => ({
   name: 'vite-plugin-full-reload',
 
+  apply: 'serve',
+
   configureServer ({ ws, config: { logger } }: ViteDevServer) {
     const { root = process.cwd(), log = true, always = true, ...watchOptions } = config
 
