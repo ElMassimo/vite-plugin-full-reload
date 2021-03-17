@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-full-reload",
   "description": "Reload the page when files are modified",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -27,9 +27,8 @@
     "build": "tsup src/index.ts --dts --format cjs,esm",
     "lint": "lint-staged",
     "postinstall": "husky install",
-    "prerelease": "npm run build",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "prepublishOnly": "pinst --disable",
+    "prepublishOnly": "pinst --disable && npm run build",
     "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags && pinst --enable"
   },
   "peerDependencies": {
