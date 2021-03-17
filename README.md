@@ -20,7 +20,7 @@
 
 ## Why? 🤔
 
-When using _[Vite Ruby]_, I wanted to see changes to server-rendered layout or template without having to manually reload the page.
+When using _[Vite Ruby]_, I wanted to see changes to server-rendered layouts and templates without having to manually reload the page.
 
 Also, in _[JS From Routes]_ path helpers are generated when Rails reload is triggered.
 
