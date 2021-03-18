@@ -1,3 +1,7 @@
+## [0.1.3](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v0.1.2...v0.1.3) (2021-03-18)
+
+* Move `chalk` and `chokidar` as `dependencies` since only npm v7 installs `peerDependencies`.
+
 ## [0.1.2](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v0.1.1...v0.1.2) (2021-03-18)
 
 * Add `vite-plugin` keyword to the package to make it easier to find.
