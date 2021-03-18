@@ -17,6 +17,7 @@
 [vite-plugin-live-reload]: https://github.com/arnoson/vite-plugin-live-reload
 [Vite Ruby]: https://github.com/ElMassimo/vite_ruby
 [JS From Routes]: https://github.com/ElMassimo/js_from_routes
+[picomatch]: https://github.com/micromatch/picomatch#globbing-features
 
 ## Why? 🤔
 
@@ -51,15 +52,41 @@ export default defineConfig({
 
 This is useful to trigger a page refresh for files that are not being imported, such as server-rendered templates.
 
+To see which file globbing options are available, check [picomatch].
+
+## Configuration ⚙️
+
+The following options can be provided:
+
+- <kbd>root</kbd>
+  
+  Files will be resolved against this directory.
+
+  __Default:__ `process.cwd()`
+
+  ``` js
+  FullReload('config/routes.rb', { root: __dirname }),
+  ``` 
+
+- <kbd>always</kbd>
+
+  Whether to refresh the page even if the modified HTML file is not currently being displayed.
+
+  __Default:__ `true`
+  
+  ```js
+  FullReload('app/views/**/*', { always: false })
+  ``` 
+
 ## Acknowledgements
 
 - <kbd>[vite-plugin-live-reload]</kbd>
 
   This is a nice plugin, I found it right before publishing this one.
 
-  I've made [two](https://github.com/arnoson/vite-plugin-live-reload/pull/3) [PRs](https://github.com/arnoson/vite-plugin-live-reload/pull/5) that are needed to support these use cases.
+  I've made [two](https://github.com/arnoson/vite-plugin-live-reload/pull/3) [PRs](https://github.com/arnoson/vite-plugin-live-reload/pull/5) that were needed to support these use cases.
 
-  If they are merged, this might become a "preset" of that library instead.
+  At this point in time they are very similar, except in their defaults.
 
 ## License
 
