@@ -34,15 +34,13 @@
     "prepublishOnly": "pinst --disable && npm run build",
     "postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags && pinst --enable"
   },
-  "peerDependencies": {
+  "dependencies": {
     "chalk": "^4.1",
     "chokidar": "^3.5"
   },
   "devDependencies": {
     "@mussi/eslint-config": "^0.5.0",
     "@types/node": "^14.14.35",
-    "chalk": "^4.1",
-    "chokidar": "^3.5",
     "conventional-changelog-cli": "^2.1.1",
     "eslint": "^7.22.0",
     "husky": "^5.1.3",
