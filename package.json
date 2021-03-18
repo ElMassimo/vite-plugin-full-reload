@@ -18,6 +18,9 @@
   ],
   "keywords": [
     "vite",
+    "plugin",
+    "vite-plugin",
+    "vitejs",
     "full",
     "reload"
   ],
