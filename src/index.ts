@@ -14,6 +14,12 @@ interface Config {
   always?: boolean
 
   /**
+   * How many milliseconds to wait before reloading the page after a file change.
+   * @default 0
+   */
+  delay?: number
+
+  /**
    * Whether to log when a file change triggers a full reload.
    * @default true
    */
@@ -38,13 +44,13 @@ export default (paths: string | string[], config: Config = {}): Plugin => ({
   config: () => ({ server: { watch: { disableGlobbing: false } } }),
 
   configureServer ({ watcher, ws, config: { logger } }: ViteDevServer) {
-    const { root = process.cwd(), log = true, always = true } = config
+    const { root = process.cwd(), log = true, always = true, delay = 0 } = config
 
     const files = Array.from(paths).map(path => resolve(root, path))
     const shouldReload = picomatch(files)
     const checkReload = (path: string) => {
       if (shouldReload(path)) {
-        ws.send({ type: 'full-reload', path: always ? '*' : path })
+        setTimeout(() => ws.send({ type: 'full-reload', path: always ? '*' : path }), delay)
         if (log)
           logger.info(`${green('page reload')} ${dim(relative(root, path))}`, { clear: true, timestamp: true })
       }

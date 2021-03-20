@@ -68,6 +68,17 @@ The following options can be provided:
   FullReload('config/routes.rb', { root: __dirname }),
   ``` 
 
+- <kbd>delay</kbd>
+
+  How many milliseconds to wait before reloading the page after a file change.
+  It can be used to offset slow template compilation in Rails.
+
+  __Default:__ `true`
+  
+  ```js
+  FullReload('app/views/**/*', { delay: 100 })
+  ``` 
+
 - <kbd>always</kbd>
 
   Whether to refresh the page even if the modified HTML file is not currently being displayed.
