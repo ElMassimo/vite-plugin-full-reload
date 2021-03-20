@@ -86,7 +86,7 @@ The following options can be provided:
 
   I've made [two](https://github.com/arnoson/vite-plugin-live-reload/pull/3) [PRs](https://github.com/arnoson/vite-plugin-live-reload/pull/5) that were needed to support these use cases.
 
-  At this point in time they are very similar, except in their defaults.
+  At this point in time they are very similar, except this library doesn't create another `chokidar` watcher.
 
 ## License
 

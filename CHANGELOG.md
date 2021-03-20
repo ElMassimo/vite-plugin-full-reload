@@ -1,3 +1,7 @@
+# [0.2.0](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v0.1.3...v0.2.0) (2021-03-20)
+
+* Switch to use Vite's watcher instead of creating a new one with `chokidar`.
+
 ## [0.1.3](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v0.1.2...v0.1.3) (2021-03-18)
 
 * Move `chalk` and `chokidar` as `dependencies` since only npm v7 installs `peerDependencies`.
