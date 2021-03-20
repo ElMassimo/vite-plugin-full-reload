@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v0.2.0...v0.2.1) (2021-03-20)
+
+
+### Features
+
+* Add `delay` to offset slow template compilation in Rails ([e69c6b6](https://github.com/ElMassimo/vite-plugin-full-reload/commit/e69c6b6616a69f7778ef7d34e0a0648fa4dfcbc8))
+
+
+
 # [0.2.0](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v0.1.3...v0.2.0) (2021-03-20)
 
 * Switch to use Vite's watcher instead of creating a new one with `chokidar`.
