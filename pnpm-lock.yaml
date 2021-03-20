@@ -1,9 +1,10 @@
 dependencies:
   chalk: 4.1.0
-  chokidar: 3.5.1
+  picomatch: 2.2.2
 devDependencies:
   '@mussi/eslint-config': 0.5.0_eslint@7.22.0+typescript@4.2.3
   '@types/node': 14.14.35
+  '@types/picomatch': 2.2.1
   conventional-changelog-cli: 2.1.1
   eslint: 7.22.0
   husky: 5.1.3
@@ -342,6 +343,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
+  /@types/picomatch/2.2.1:
+    dev: true
+    resolution:
+      integrity: sha512-26/tQcDmJXYHiaWAAIjnTVL5nwrT+IVaqFZIbBImAuKk/r/j1r/1hmZ7uaOzG6IknqP3QHcNNQ6QO8Vp28lUoA==
   /@typescript-eslint/eslint-plugin/4.18.0_ef0f217f6395606fd8bbe7b0291eff7e:
     dependencies:
       '@typescript-eslint/experimental-utils': 4.18.0_eslint@7.22.0+typescript@4.2.3
@@ -544,6 +549,7 @@ packages:
     dependencies:
       normalize-path: 3.0.0
       picomatch: 2.2.2
+    dev: true
     engines:
       node: '>= 8'
     resolution:
@@ -620,6 +626,7 @@ packages:
     resolution:
       integrity: sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
   /binary-extensions/2.2.0:
+    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -634,6 +641,7 @@ packages:
   /braces/3.0.2:
     dependencies:
       fill-range: 7.0.1
+    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -732,6 +740,7 @@ packages:
       is-glob: 4.0.1
       normalize-path: 3.0.0
       readdirp: 3.5.0
+    dev: true
     engines:
       node: '>= 8.10.0'
     optionalDependencies:
@@ -1664,6 +1673,7 @@ packages:
   /fill-range/7.0.1:
     dependencies:
       to-regex-range: 5.0.1
+    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -1716,6 +1726,7 @@ packages:
     resolution:
       integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
   /fsevents/2.3.2:
+    dev: true
     engines:
       node: ^8.16.0 || ^10.6.0 || >=11.0.0
     optional: true
@@ -1821,6 +1832,7 @@ packages:
   /glob-parent/5.1.2:
     dependencies:
       is-glob: 4.0.1
+    dev: true
     engines:
       node: '>= 6'
     resolution:
@@ -2069,6 +2081,7 @@ packages:
   /is-binary-path/2.1.0:
     dependencies:
       binary-extensions: 2.2.0
+    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -2100,6 +2113,7 @@ packages:
     resolution:
       integrity: sha512-USlDT524woQ08aoZFzh3/Z6ch9Y/EWXEHQ/AaRN0SkKq4t2Jw2R2339tSXmwuVoY7LLlBCbOIlx2myP/L5zk0g==
   /is-extglob/2.1.1:
+    dev: true
     engines:
       node: '>=0.10.0'
     resolution:
@@ -2119,6 +2133,7 @@ packages:
   /is-glob/4.0.1:
     dependencies:
       is-extglob: 2.1.1
+    dev: true
     engines:
       node: '>=0.10.0'
     resolution:
@@ -2136,6 +2151,7 @@ packages:
     resolution:
       integrity: sha512-zohwelOAur+5uXtk8O3GPQ1eAcu4ZX3UwxQhUlfFFMNpUd83gXgjbhJh6HmB6LUNV/ieOLQuDwJO3dWJosUeMw==
   /is-number/7.0.0:
+    dev: true
     engines:
       node: '>=0.12.0'
     resolution:
@@ -2632,6 +2648,7 @@ packages:
     resolution:
       integrity: sha512-D/ttLdxo71msR4FF3VgSwK4blHfE3/vGByz1NCeE7/Dh8reQOKNJJjk5L10mLq9jxa+ZHzT1/HLgxljzbXE7Fw==
   /normalize-path/3.0.0:
+    dev: true
     engines:
       node: '>=0.10.0'
     resolution:
@@ -3139,6 +3156,7 @@ packages:
   /readdirp/3.5.0:
     dependencies:
       picomatch: 2.2.2
+    dev: true
     engines:
       node: '>=8.10.0'
     resolution:
@@ -3642,6 +3660,7 @@ packages:
   /to-regex-range/5.0.1:
     dependencies:
       is-number: 7.0.0
+    dev: true
     engines:
       node: '>=8.0'
     resolution:
@@ -3911,12 +3930,13 @@ packages:
 specifiers:
   '@mussi/eslint-config': ^0.5.0
   '@types/node': ^14.14.35
+  '@types/picomatch': ^2.2.1
   chalk: ^4.1
-  chokidar: ^3.5
   conventional-changelog-cli: ^2.1.1
   eslint: ^7.22.0
   husky: ^5.1.3
   lint-staged: ^10.5.4
+  picomatch: ^2.2.2
   pinst: ^2.1.6
   rollup: ^2.41.4
   tsup: ^4.8.3

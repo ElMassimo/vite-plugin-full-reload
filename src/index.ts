@@ -1,14 +1,12 @@
-import { relative } from 'path'
+import { resolve, relative } from 'path'
 import { green, dim } from 'chalk'
-import { watch } from 'chokidar'
-
-import type { WatchOptions } from 'chokidar'
+import picomatch from 'picomatch'
 import type { Plugin, ViteDevServer } from 'vite'
 
 /**
  * Configuration for the watched paths.
  */
-interface Config extends WatchOptions {
+interface Config {
   /**
    * Whether full reload should happen regardless of the file path.
    * @default true
@@ -36,17 +34,27 @@ export default (paths: string | string[], config: Config = {}): Plugin => ({
 
   apply: 'serve',
 
-  configureServer ({ ws, config: { logger } }: ViteDevServer) {
-    const { root = process.cwd(), log = true, always = true, ...watchOptions } = config
+  // NOTE: Enable globbing so that Vite keeps track of the template files.
+  config: () => ({ server: { watch: { disableGlobbing: false } } }),
 
-    const reload = (path: string) => {
-      ws.send({ type: 'full-reload', path: always ? '*' : path })
-      if (log)
-        logger.info(`${green('page reload')} ${dim(relative(root, path))}`, { clear: true, timestamp: true })
+  configureServer ({ watcher, ws, config: { logger } }: ViteDevServer) {
+    const { root = process.cwd(), log = true, always = true } = config
+
+    const files = Array.from(paths).map(path => resolve(root, path))
+    const shouldReload = picomatch(files)
+    const checkReload = (path: string) => {
+      if (shouldReload(path)) {
+        ws.send({ type: 'full-reload', path: always ? '*' : path })
+        if (log)
+          logger.info(`${green('page reload')} ${dim(relative(root, path))}`, { clear: true, timestamp: true })
+      }
     }
 
-    watch(paths, { cwd: root, ignoreInitial: true, ...watchOptions })
-      .on('add', reload)
-      .on('change', reload)
+    // Ensure Vite keeps track of the files and triggers HMR as needed.
+    watcher.add(files)
+
+    // Do a full page reload if any of the watched files changes.
+    watcher.on('add', checkReload)
+    watcher.on('change', checkReload)
   },
 })
