@@ -73,7 +73,7 @@ The following options can be provided:
   How many milliseconds to wait before reloading the page after a file change.
   It can be used to offset slow template compilation in Rails.
 
-  __Default:__ `true`
+  __Default:__ `0`
   
   ```js
   FullReload('app/views/**/*', { delay: 100 })
