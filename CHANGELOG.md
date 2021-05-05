@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v0.2.1...v0.2.2) (2021-05-05)
+
+
+### Bug Fixes
+
+* Update typings. Plugin => PluginOption ([d944c48](https://github.com/ElMassimo/vite-plugin-full-reload/commit/d944c488b058a9973e71f78b3b9473e8d7dada6e))
+
+
+
 ## [0.2.1](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v0.2.0...v0.2.1) (2021-03-20)
 
 
