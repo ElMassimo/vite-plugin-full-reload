@@ -1,7 +1,7 @@
 import { resolve, relative } from 'path'
 import { green, dim } from 'chalk'
 import picomatch from 'picomatch'
-import type { Plugin, ViteDevServer } from 'vite'
+import type { PluginOption, ViteDevServer } from 'vite'
 
 /**
  * Configuration for the watched paths.
@@ -35,7 +35,7 @@ interface Config {
 /**
  * Allows to automatically reload the page when a watched file changes.
  */
-export default (paths: string | string[], config: Config = {}): Plugin => ({
+export default (paths: string | string[], config: Config = {}): PluginOption => ({
   name: 'vite-plugin-full-reload',
 
   apply: 'serve',
