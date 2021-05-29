@@ -44,13 +44,13 @@ export default (paths: string | string[], config: Config = {}): PluginOption => 
   config: () => ({ server: { watch: { disableGlobbing: false } } }),
 
   configureServer ({ watcher, ws, config: { logger } }: ViteDevServer) {
-    const { root = process.cwd(), log = true, always = true, delay = 0 } = config
+    const { root = process.cwd(), log = true, always = true, delay = 0, type = 'full-reload' } = config
 
     const files = Array.from(paths).map(path => resolve(root, path))
     const shouldReload = picomatch(files)
     const checkReload = (path: string) => {
       if (shouldReload(path)) {
-        setTimeout(() => ws.send({ type: 'full-reload', path: always ? '*' : path }), delay)
+        setTimeout(() => ws.send({ type: type, path: always ? '*' : path }), delay)
         if (log)
           logger.info(`${green('page reload')} ${dim(relative(root, path))}`, { clear: true, timestamp: true })
       }
