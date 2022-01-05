@@ -5,7 +5,7 @@
  */
 const path = require('path')
 const fs = require('fs')
-const execa = require('execa')
+const spawn = require('cross-spawn')
 const args = require('minimist')(process.argv.slice(2))
 const semver = require('semver')
 const chalk = require('chalk')
@@ -50,8 +50,8 @@ function inc (i) {
  * @param {string[]} args
  * @param {object} opts
  */
-async function run (bin, args, opts = {}) {
-  return execa(bin, args, { stdio: 'inherit', ...opts })
+function run (bin, args, opts = {}) {
+  return spawn.sync(bin, args, { stdio: 'inherit', ...opts })
 }
 
 /**
@@ -59,7 +59,7 @@ async function run (bin, args, opts = {}) {
  * @param {string[]} args
  * @param {object} opts
  */
-async function dryRun (bin, args, opts = {}) {
+function dryRun (bin, args, opts = {}) {
   console.log(chalk.blue(`[dryrun] ${bin} ${args.join(' ')}`), opts)
 }
 
@@ -146,18 +146,18 @@ async function main () {
 
   step(`\nBuilding ${pkg.type}...`)
   if (!skipBuild && !isDryRun)
-    await run('pnpm', ['build'], { cwd: resolve('.') })
+    run('pnpm', ['build'], { cwd: resolve('.') })
   else
     console.log('(skipped)')
 
   step('\nGenerating changelog...')
-  await run('pnpm', ['changelog', name])
+  runIfNotDry('pnpm', ['changelog', name])
 
-  const { stdout } = await run('git', ['diff'], { stdio: 'pipe' })
+  const { stdout } = run('git', ['diff'], { stdio: 'pipe' })
   if (stdout) {
     step('\nCommitting changes...')
-    await runIfNotDry('git', ['add', '-A'])
-    await runIfNotDry('git', ['commit', '-m', `release: ${tag}`])
+    runIfNotDry('git', ['add', '-A'])
+    runIfNotDry('git', ['commit', '-m', `release: ${tag}`])
   }
   else {
     console.log('No changes to commit.')
@@ -167,7 +167,7 @@ async function main () {
   await publishPackage(targetVersion, runIfNotDry)
 
   step('\nPushing to GitHub...')
-  await runIfNotDry('git', ['push'])
+  runIfNotDry('git', ['push'])
 
   if (isDryRun)
     console.log(`\nDry run finished - run git diff to see ${pkg.type} changes.`)
@@ -181,7 +181,7 @@ async function main () {
  */
 async function publishPackage (version, runIfNotDry) {
   try {
-    await runIfNotDry('pnpm', ['publish'], {
+    runIfNotDry('pnpm', ['publish'], {
       stdio: 'inherit',
       cwd: resolve('.'),
     })
