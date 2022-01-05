@@ -1,5 +1,5 @@
 import { resolve, relative } from 'path'
-import { green, dim } from 'chalk'
+import colors from 'picocolors'
 import picomatch from 'picomatch'
 import type { PluginOption, ViteDevServer } from 'vite'
 
@@ -52,7 +52,7 @@ export default (paths: string | string[], config: Config = {}): PluginOption => 
       if (shouldReload(path)) {
         setTimeout(() => ws.send({ type: 'full-reload', path: always ? '*' : path }), delay)
         if (log)
-          logger.info(`${green('page reload')} ${dim(relative(root, path))}`, { clear: true, timestamp: true })
+          logger.info(`${colors.green('page reload')} ${colors.dim(relative(root, path))}`, { clear: true, timestamp: true })
       }
     }
 
