@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-full-reload",
   "description": "Reload the page when files are modified",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "Máximo Mussini <maximomussini@gmail.com>",
   "repository": {
@@ -54,11 +54,14 @@
     "@types/picomatch": "^2.3.0",
     "conventional-changelog-cli": "^2.2.2",
     "cross-spawn": "^7.0.3",
+    "enquirer": "^2.3.6",
     "eslint": "^7.32.0",
     "husky": "^5.2.0",
     "lint-staged": "^10.5.4",
+    "minimist": "^1.2.5",
     "pinst": "^2.1.6",
     "rollup": "^2.63.0",
+    "semver": "^7.3.5",
     "tsup": "^5.11.10",
     "typescript": "^4.5.4",
     "vite": "^2.7.10"

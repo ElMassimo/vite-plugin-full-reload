@@ -1,3 +1,17 @@
+# [1.0.0](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v0.2.2...v1.0.0) (2022-01-05)
+
+
+### Bug Fixes
+
+* default export in `"type": "module"` vite projects ([7c2a625](https://github.com/ElMassimo/vite-plugin-full-reload/commit/7c2a625e46541bdadd1e8f978262c0c59ee2231a))
+
+
+### Features
+
+* switch to picocolors ([3e1c94e](https://github.com/ElMassimo/vite-plugin-full-reload/commit/3e1c94e12b6be7cc8466949b164272a5e0f066e2))
+
+
+
 ## [0.2.2](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v0.2.1...v0.2.2) (2021-05-05)
 
 

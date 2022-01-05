@@ -8,7 +8,7 @@ const fs = require('fs')
 const spawn = require('cross-spawn')
 const args = require('minimist')(process.argv.slice(2))
 const semver = require('semver')
-const chalk = require('chalk')
+const colors = require('picocolors')
 const { prompt } = require('enquirer')
 
 const name = 'vite-plugin-full-reload'
@@ -60,14 +60,14 @@ function run (bin, args, opts = {}) {
  * @param {object} opts
  */
 function dryRun (bin, args, opts = {}) {
-  console.log(chalk.blue(`[dryrun] ${bin} ${args.join(' ')}`), opts)
+  console.log(colors.blue(`[dryrun] ${bin} ${args.join(' ')}`), opts)
 }
 
 /**
  * @param {string} msg
  */
 function step (msg) {
-  console.log(chalk.cyan(msg))
+  console.log(colors.cyan(msg))
 }
 
 /**
@@ -185,11 +185,11 @@ async function publishPackage (version, runIfNotDry) {
       stdio: 'inherit',
       cwd: resolve('.'),
     })
-    console.log(chalk.green(`Successfully published ${name}@${version}`))
+    console.log(colors.green(`Successfully published ${name}@${version}`))
   }
   catch (e) {
     if (e.stderr.match(/previously published/))
-      console.log(chalk.red(`Skipping already published: ${name}`))
+      console.log(colors.red(`Skipping already published: ${name}`))
     else
       throw e
   }
