@@ -6,7 +6,7 @@ import type { PluginOption, ViteDevServer } from 'vite'
 /**
  * Configuration for the watched paths.
  */
-interface Config {
+export interface Config {
   /**
    * Whether full reload should happen regardless of the file path.
    * @default true
