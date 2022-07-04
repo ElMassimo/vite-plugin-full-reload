@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.0...v1.0.1) (2022-07-04)
+
+
+### Features
+
+* export configuration interface ([#5](https://github.com/ElMassimo/vite-plugin-full-reload/issues/5)) ([d2c1bde](https://github.com/ElMassimo/vite-plugin-full-reload/commit/d2c1bde2de57061830d13c040b2ff26e4f7e79c2))
+
+
+
 # [1.0.0](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v0.2.2...v1.0.0) (2022-01-05)
 
 
