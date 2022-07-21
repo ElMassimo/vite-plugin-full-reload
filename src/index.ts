@@ -1,7 +1,7 @@
 import { resolve, relative } from 'path'
 import colors from 'picocolors'
 import picomatch from 'picomatch'
-import type { PluginOption, ViteDevServer } from 'vite'
+import { normalizePath, PluginOption, ViteDevServer } from 'vite'
 
 /**
  * Configuration for the watched paths.
@@ -46,7 +46,7 @@ export default (paths: string | string[], config: Config = {}): PluginOption => 
   configureServer ({ watcher, ws, config: { logger } }: ViteDevServer) {
     const { root = process.cwd(), log = true, always = true, delay = 0 } = config
 
-    const files = Array.from(paths).map(path => resolve(root, path))
+    const files = Array.from(paths).map(path => resolve(root, path)).map(normalizePath)
     const shouldReload = picomatch(files)
     const checkReload = (path: string) => {
       if (shouldReload(path)) {
