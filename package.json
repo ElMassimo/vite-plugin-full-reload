@@ -48,7 +48,7 @@
     "picomatch": "^2.3.1"
   },
   "peerDependencies": {
-    "vite": "2"
+    "vite": "^2 || ^3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "*",
