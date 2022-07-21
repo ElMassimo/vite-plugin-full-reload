@@ -49,3 +49,4 @@ selenium-server.log
 .env.*.local
 
 docs/pnpm-lock.yaml
+.pnpm-debug.log

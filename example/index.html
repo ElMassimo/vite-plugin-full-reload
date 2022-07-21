@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite Plugin Full Reload</title>
+    <meta property="author" content="Máximo Mussini">
+    <meta property="HandheldFriendly" content="True">
+    <meta property="MobileOptimized" content="320">
+    <meta http-equiv="cleartype" content="on">
+    <meta property="theme-color" content="#5C7E8F">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="twitter:creator" content="@MaximoMussini">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBhcmlhLWhpZGRlbj0idHJ1ZSIgcm9sZT0iaW1nIiBjbGFzcz0iaWNvbmlmeSBpY29uaWZ5LS1vaSIgd2lkdGg9IjFlbSIgaGVpZ2h0PSIxZW0iIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIG1lZXQiIHZpZXdCb3g9IjAgMCA4IDgiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTQgMEMxLjggMCAwIDEuOCAwIDRzMS44IDQgNCA0YzEuMSAwIDIuMTItLjQzIDIuODQtMS4xNmwtLjcyLS43MmMtLjU0LjU0LTEuMjkuODgtMi4xMy44OGMtMS42NiAwLTMtMS4zNC0zLTNzMS4zNC0zIDMtM2MuODMgMCAxLjU1LjM2IDIuMDkuOTFMNC45OSAzaDNWMEw2LjggMS4xOUM2LjA4LjQ3IDUuMDkgMCAzLjk5IDB6Ij48L3BhdGg+PC9zdmc+">
+  </head>
+  <body style="margin: 0 auto; max-width: 800px; text-align: center; font-family: system-ui; font-size: 18px">
+    <h1>Vite Plugin Full Reload</h1>
+    <p>Modify <code>example/README.md</code> and see how the page reloads a second later.</p>
+    <p>Last reloaded at: <span id="timestamp"></span></p>
+  </body>
+  <script type="module">
+    const options = {
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+    }
+
+    timestamp.textContent = new Intl.DateTimeFormat(undefined, options).format(new Date())
+  </script>
+</html>
