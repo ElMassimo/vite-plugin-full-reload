@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-full-reload",
   "description": "Reload the page when files are modified",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "author": "Máximo Mussini <maximomussini@gmail.com>",
   "repository": {

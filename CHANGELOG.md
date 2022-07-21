@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.2...v1.0.3) (2022-07-21)
+
+
+### Bug Fixes
+
+* "Conflicting peer dependency" ([#8](https://github.com/ElMassimo/vite-plugin-full-reload/issues/8)) ([91cbc71](https://github.com/ElMassimo/vite-plugin-full-reload/commit/91cbc7107163719d86fe2d8769032f7b29e4cfd7))
+
+
+
 ## [1.0.2](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.1...v1.0.2) (2022-07-21)
 
 
