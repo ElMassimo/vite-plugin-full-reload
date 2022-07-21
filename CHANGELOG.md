@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.1...v1.0.2) (2022-07-21)
+
+
+### Bug Fixes
+
+* normalise windows paths ([#7](https://github.com/ElMassimo/vite-plugin-full-reload/issues/7)) ([cc47178](https://github.com/ElMassimo/vite-plugin-full-reload/commit/cc47178806936cbcc98b246b3989b2073c1d8f6a))
+
+
+
 ## [1.0.1](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.0...v1.0.1) (2022-07-04)
 
 
