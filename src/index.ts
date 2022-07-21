@@ -1,7 +1,7 @@
-import { resolve, relative } from 'path'
+import { relative, resolve } from 'path'
 import colors from 'picocolors'
 import picomatch from 'picomatch'
-import { normalizePath, type PluginOption, type ViteDevServer } from 'vite'
+import { type PluginOption, type ViteDevServer, normalizePath } from 'vite'
 
 /**
  * Configuration for the watched paths.
