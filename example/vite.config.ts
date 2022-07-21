@@ -3,6 +3,6 @@ import reloadOnChange from 'vite-plugin-full-reload'
 
 export default defineConfig({
   plugins: [
-    reloadOnChange(['README.md'], { delay: 100 }),
+    reloadOnChange(['README.md', '../README.md'], { delay: 100 }),
   ],
 })
