@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.3...v1.0.4) (2022-08-09)
+
+
+### Bug Fixes
+
+* wrapping of single string path in plugin arguments (close [#9](https://github.com/ElMassimo/vite-plugin-full-reload/issues/9)) ([7f62e0f](https://github.com/ElMassimo/vite-plugin-full-reload/commit/7f62e0ffa0820b52f7386b123b13617c2fd94f73))
+
+
+
 ## [1.0.3](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.2...v1.0.3) (2022-07-21)
 
 
