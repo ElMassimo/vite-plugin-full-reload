@@ -32,6 +32,10 @@ export interface Config {
   root?: string
 }
 
+export function normalizePaths (root: string, path: string | string[]): string[] {
+  return (Array.isArray(path) ? path : [path]).map(path => resolve(root, path)).map(normalizePath)
+}
+
 /**
  * Allows to automatically reload the page when a watched file changes.
  */
@@ -46,7 +50,7 @@ export default (paths: string | string[], config: Config = {}): PluginOption => 
   configureServer ({ watcher, ws, config: { logger } }: ViteDevServer) {
     const { root = process.cwd(), log = true, always = true, delay = 0 } = config
 
-    const files = Array.from(paths).map(path => resolve(root, path)).map(normalizePath)
+    const files = normalizePaths(root, paths)
     const shouldReload = picomatch(files)
     const checkReload = (path: string) => {
       if (shouldReload(path)) {
