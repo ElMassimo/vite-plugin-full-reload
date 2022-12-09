@@ -1,3 +1,12 @@
+## [1.0.5](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.4...v1.0.5) (2022-12-09)
+
+
+### Features
+
+* add vite 4 as a valid peer dependency ([#13](https://github.com/ElMassimo/vite-plugin-full-reload/issues/13)) ([d4aa4cc](https://github.com/ElMassimo/vite-plugin-full-reload/commit/d4aa4cc518af7ee50353cccf49a64896a6d8d83e))
+
+
+
 ## [1.0.4](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.3...v1.0.4) (2022-08-09)
 
 
