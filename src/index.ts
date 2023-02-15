@@ -52,13 +52,28 @@ export default (paths: string | string[], config: Config = {}): PluginOption => 
 
     const files = normalizePaths(root, paths)
     const shouldReload = picomatch(files)
+    const currentFiles: string[] = [];
     const checkReload = (path: string) => {
-      if (shouldReload(path)) {
-        setTimeout(() => ws.send({ type: 'full-reload', path: always ? '*' : path }), delay)
-        if (log)
-          logger.info(`${colors.green('page reload')} ${colors.dim(relative(root, path))}`, { clear: true, timestamp: true })
-      }
-    }
+        if (shouldReload(path)) {
+            currentFiles.push(path);
+            setTimeout(() => {
+                if (currentFiles.length > 0) {
+                    currentFiles.splice(0, currentFiles.length);
+                    ws.send({
+                        type: 'full-reload',
+                        path: always ? '*' : path
+                    });
+                }
+            }, delay);
+            if (log)
+                logger.info(
+                    `${colors.green('page reload')} ${colors.dim(
+                        relative(root, path)
+                    )}`,
+                    { clear: true, timestamp: true }
+                );
+        }
+    };
 
     // Ensure Vite keeps track of the files and triggers HMR as needed.
     watcher.add(files)
