@@ -40,14 +40,12 @@ npm i -D vite-plugin-full-reload # yarn add -D vite-plugin-full-reload
 Add it to your plugins in `vite.config.ts`
 
 ```ts
-import { defineConfig } from 'vite'
-import FullReload from 'vite-plugin-full-reload'
+import { defineConfig } from "vite";
+import FullReload from "vite-plugin-full-reload";
 
 export default defineConfig({
-  plugins: [
-    FullReload(['config/routes.rb', 'app/views/**/*'])
-  ],
-})
+  plugins: [FullReload(["config/routes.rb", "app/views/**/*"])],
+});
 ```
 
 This is useful to trigger a page refresh for files that are not being imported, such as server-rendered templates.
@@ -59,35 +57,47 @@ To see which file globbing options are available, check [picomatch].
 The following options can be provided:
 
 - <kbd>root</kbd>
-  
+
   Files will be resolved against this directory.
 
-  __Default:__ `process.cwd()`
+  **Default:** `process.cwd()`
 
-  ``` js
+  ```js
   FullReload('config/routes.rb', { root: __dirname }),
-  ``` 
+  ```
 
 - <kbd>delay</kbd>
 
   How many milliseconds to wait before reloading the page after a file change.
   It can be used to offset slow template compilation in Rails.
 
-  __Default:__ `0`
-  
+  **Default:** `0`
+
   ```js
-  FullReload('app/views/**/*', { delay: 100 })
-  ``` 
+  FullReload("app/views/**/*", { delay: 100 });
+  ```
+
+- <kbd>debounce</kbd>
+
+  How many milliseconds to postpone the execution of the reload function since it's last invocation.
+  This is useful if you have a lot of changes in a short period of time and need to make sure that
+  only one `full-reload` event is sent to Vite.
+
+  **Default:** `0`
+
+  ```js
+  FullReload("app/views/**/*", { debounce: 100 });
+  ```
 
 - <kbd>always</kbd>
 
   Whether to refresh the page even if the modified HTML file is not currently being displayed.
 
-  __Default:__ `true`
-  
+  **Default:** `true`
+
   ```js
-  FullReload('app/views/**/*', { always: false })
-  ``` 
+  FullReload("app/views/**/*", { always: false });
+  ```
 
 ## Acknowledgements
 

@@ -1,6 +1,7 @@
 import { relative, resolve } from 'path'
 import colors from 'picocolors'
 import picomatch from 'picomatch'
+import debounce from 'debounce'
 import { type PluginOption, type ViteDevServer, normalizePath } from 'vite'
 
 /**
@@ -18,6 +19,15 @@ export interface Config {
    * @default 0
    */
   delay?: number
+
+  /**
+   * How many milliseconds to postpone the execution of the reload function since it's last invocation.
+   * This is useful if you have a lot of changes in a short period of time and need to make sure that
+   * only only one `full-reload` event is sent to Vite.
+   *
+   * @default 0
+   */
+  debounce?: number
 
   /**
    * Whether to log when a file change triggers a full reload.
@@ -48,13 +58,15 @@ export default (paths: string | string[], config: Config = {}): PluginOption => 
   config: () => ({ server: { watch: { disableGlobbing: false } } }),
 
   configureServer ({ watcher, ws, config: { logger } }: ViteDevServer) {
-    const { root = process.cwd(), log = true, always = true, delay = 0 } = config
+    const { root = process.cwd(), log = true, always = true, delay = 0, debounce: debounceMs = 0 } = config
 
     const files = normalizePaths(root, paths)
     const shouldReload = picomatch(files)
+    const sendReloadEvent = (path: string) => setTimeout(() => ws.send({ type: 'full-reload', path: always ? '*' : path }), delay)
+    const reload = debounceMs ? debounce(sendReloadEvent, debounceMs) : sendReloadEvent
     const checkReload = (path: string) => {
       if (shouldReload(path)) {
-        setTimeout(() => ws.send({ type: 'full-reload', path: always ? '*' : path }), delay)
+        reload(path)
         if (log)
           logger.info(`${colors.green('page reload')} ${colors.dim(relative(root, path))}`, { clear: true, timestamp: true })
       }
