@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [14.x]
+        node: [18.x]
 
     runs-on: ${{ matrix.os }}
 
@@ -18,7 +18,7 @@ jobs:
 
       - uses: pnpm/action-setup@v2.2.2
         with:
-          version: 7.4.1
+          version: 8.8.0
 
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
