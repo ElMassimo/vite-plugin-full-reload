@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.5...v1.1.0) (2023-11-16)
+
+
+### Features
+
+* allow installing with vite 5 (close [#23](https://github.com/ElMassimo/vite-plugin-full-reload/issues/23)) ([0e912e2](https://github.com/ElMassimo/vite-plugin-full-reload/commit/0e912e2980808a168678846d38ecd08635fa5b00))
+
+
+
 ## [1.0.5](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.4...v1.0.5) (2022-12-09)
 
 
