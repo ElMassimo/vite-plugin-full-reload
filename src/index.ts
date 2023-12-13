@@ -56,7 +56,7 @@ export default (paths: string | string[], config: Config = {}): PluginOption => 
       if (shouldReload(path)) {
         setTimeout(() => ws.send({ type: 'full-reload', path: always ? '*' : path }), delay)
         if (log)
-          logger.info(`${colors.green('page reload')} ${colors.dim(relative(root, path))}`, { clear: true, timestamp: true })
+          logger.info(`${colors.green('full reload')} ${colors.dim(relative(root, path))}`, { clear: true, timestamp: true })
       }
     }
 
