@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.1.0...v1.2.0) (2024-07-08)
+
+
+### Features
+
+* differentiate plugin log from vite log ([#19](https://github.com/ElMassimo/vite-plugin-full-reload/issues/19)) ([943016d](https://github.com/ElMassimo/vite-plugin-full-reload/commit/943016dbebca83130a44095cd32d077a71aeb8a8))
+
+
+
 # [1.1.0](https://github.com/ElMassimo/vite-plugin-full-reload/compare/v1.0.5...v1.1.0) (2023-11-16)
 
 
